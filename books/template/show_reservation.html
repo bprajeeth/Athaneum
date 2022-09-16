@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+    Reservations
+{% endblock title %}
+{% block customstyle %}
+{% endblock customstyle %}
+{% block body %}
+    <br>
+    <div class="col text-center">
+    <h4>Book Reservations</h4>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <table class="table">
+            <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Mail ID</th>
+            <th scope="col">Book ISBN</th>
+            <th scope="col">Department</th>
+            <!-- <th scope="col">Reservation Status</th> -->
+          </tr>
+        </thead>
+        <tbody>
+            {% for user in users_data %}
+            <tr>
+                <th scope="row">{{user.name}}</th>
+                <td>{{user.email_id}}</td>
+                <td>{{user.isbn}}</td>
+                <td>{{user.dept}}</td>
+                <!-- {% if user.status%}
+                <td><button class="btn btn-success">Active <i class="bi bi-check-lg"></i></button>
+                    <button class="btn btn-outline-danger" onclick="window.location.replace('/guest/cancelreservation/?id={{user.resver_id}}&phno={{user.phno}}&mail_id={{user.mail_id}}');">Cancel <i class="bi bi-dash-lg"></i></button>
+                </td>
+                {% elif user.status is None %}
+                <td><button class="btn btn-dark">Invalid <i class="bi bi-x-lg"></i></button></td>
+                {% else %}
+                <td><button class="btn btn-danger">Inactive <i class="bi bi-x-lg"></i></button></td>
+                {% endif %} -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <script>
+        document.getElementById("viewres").classList.add("active")
+    </script> 
+{% endblock body %}

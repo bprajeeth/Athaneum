@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}
+    Reserve Books
+{% endblock title %}
+{% block customstyle %}
+    
+{% endblock customstyle %}
+{% block body %}
+    <br>
+    <div class="col text-center">
+    <h4>Reserve a Book</h4>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+      <form action="" method="POST">
+          {% csrf_token %}
+            <div class="form-group">
+                <label for="isbn_book">Book ISBN: </label>
+                <input type="text" class="form-control" placeholder="Enter Book ISBN" id="isbn" name="isbn">
+            </div>
+            <br>
+        <div class="form-group">
+          <label for="email_id">Email address: </label>
+          <input type="email" class="form-control" id="mail_id" placeholder="Enter email" name="mail_id">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="guest_user_name">Your Name: </label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+          </div>
+        <br>
+        <div class="form-group">
+          <label for="guest_user_name">Department: </label>
+          <input type="text" class="form-control" id="dept" name="dept" placeholder="Information Technology">
+        </div>
+      <br>
+      <div class="form-group">
+        <label for="guest_user_name">Designation: </label>
+        <input type="text" class="form-control" id="type" name="type" placeholder="Student">
+      </div>
+    <br>              
+        <button type="submit" class="btn btn-outline-success">Reserve <i class="bi bi-cart-check"></i></button>
+      </form>
+    </div>
+    <!-- <script>
+        var baseUrl = (window.location).href; // You can also use document.URL
+        if (baseUrl.includes("=")){
+          var Id = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+        }
+        else{
+          var Id = "";
+        }
+        document.getElementById("isbn").value = Id;
+        document.getElementById("reserve").classList.add("active")
+    </script> -->
+{% endblock body %}

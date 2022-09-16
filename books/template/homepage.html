@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}
+    View Books
+{% endblock title %}
+{% block customstyle %}
+<style>
+    table{
+        padding:2rem;
+        margin-top:2rem;
+    }
+
+    .title-h4{
+        margin: 2rem 0;
+    }
+</style>
+{% endblock customstyle %}
+{% block body %}
+<br>
+<div class="col text-center" style="display: block;">
+  <h4>Welcome to the online Library management System</h4>
+  <br>
+  <br>
+  <h4 >Available books in the Library</h4>
+</div>
+<br>
+<br>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">Stock Available</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for book in books_data %}
+      <tr>
+        <th scope="row">{{book.title}}</th>
+        <td>{{book.author}}</td>
+        <td>{{book.isbn}}</td>
+        <td>{{book.books_count}}</td>
+        {% if book.books_count is 0 %}
+        <td><button class="btn btn-outline-danger disable">Unavailable<i class="bi bi-hourglass-split"></i></button></td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="col text-center"><td><button class="btn btn-outline-success" onclick="window.location.replace('/reserve');">Reserve <i class="bi bi-arrow-right-circle-fill"></i></button></td></div>
+</div>
+<!-- <script>
+    document.getElementById("books").classList.add("active")
+    </script>  -->
+{% endblock body %}
